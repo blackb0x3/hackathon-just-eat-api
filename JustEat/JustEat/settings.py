@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Myapp',
+    
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -79,7 +80,14 @@ WSGI_APPLICATION = 'JustEat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'justeat',
+        'USER': 'c1738283',
+        'PASSWORD': 'ezUGq8e3WyTS',
+        'HOST': 'csmysql.cs.cf.ac.uk',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 

@@ -15,14 +15,15 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from Myapp import views
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^idealweight/',views.IdealWeight)
+    url(r'^idealweight/',views.IdealWeight),
+    url(r'^api-auth/', include('rest_framework.urls'))
     ]
 #The line url(r^idealweight/,views.IdealWeight) 
 #basically tells us that the IdealWeight method will be called using the url http://<server ip>/idealweight/
