@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class Users(models.Model):
 	name = models.CharField(max_length = 40, null = False)
-	email = models. models.CharField(null = False)
+	email = models.CharField(null = False)
 	contact_number = models.CharField(max_digits = 15, null = False)
 	picture = models.ImageField(upload_to = 'images/users_img', blank = True)
 	password = models.CharField(min_length = 6, max_length = 20, null = False)
@@ -15,21 +15,21 @@ class Users(models.Model):
 	validation = models.BooleanField(default = False, null = False)
 	company = models.BooleanField(default = False, null = False)
 
-class Allergies(model.Model):
+class Allergies(models.Model):
 	ingredient = models.CharField(max_length = 30)
 
-class Requests(model.Model):
+class Requests(models.Model):
 	food = models.CharField(max_length = 50)
 	picture = models.ImageField(upload_to = 'images/food_img', blank = True)
-	comment = models. models.TextField(blank = True, null = False)
+	comment = models.models.TextField(blank = True, null = False)
 	tempreture = models.BooleanField(blank = False)
 	time = models.TimeField(default=timezone.now)
-	name = models.ForeignKey(Users)
-	contact_number = models.ForeignKey(Users)
-	address = models.ForeignKey(Users)
-	city = models.ForeignKey(Users)
-	postcode = models.ForeignKey(Users)
-	ingredient = models.ForeignKey(Allergies)
+	name = models.ForeignKey(Users, on_delete = models.CASCADE)
+	contact_number = models.ForeignKey(Users, on_delete = models.CASCADE)
+	address = models.ForeignKey(Users, on_delete = models.CASCADE)
+	city = models.ForeignKey(Users, on_delete = models.CASCADE)
+	postcode = models.ForeignKey(Users, on_delete = models.CASCADE)
+	ingredient = models.ForeignKey(Allergies, on_delete = models.CASCADE)
 
 
 
