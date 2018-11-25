@@ -18,11 +18,20 @@ from Myapp import views
 from django.conf.urls import url, include
 from django.contrib import admin
 
+router.register(r'users', views.UsersViewSet)
+router.register(r'allergies', views.AllergiesViewSet)
+router.register(r'requests', views.RequestsViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^idealweight/',views.IdealWeight),
-    url(r'^api-auth/', include('rest_framework.urls'))
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+
+   
+
 #The line url(r^idealweight/,views.IdealWeight)
 #basically tells us that the IdealWeight method will be called using the url http://<server ip>/idealweight/
 
