@@ -35,7 +35,7 @@ class RequestsViewSet(viewsets.ModelViewSet):
     serializer_class = RequestsSerializer    
 
 # Create your views here.
-"""
+
 def login(request):
     return JsonResponse("Reached login endpoint")
 
@@ -68,4 +68,4 @@ def getRequests(request, account_id=None):
         })
 
     return JsonResponse("Reached requests endpoint (for food that is...)")
-    """
+
