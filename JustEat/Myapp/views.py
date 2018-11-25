@@ -20,6 +20,7 @@ def IdealWeight(heightdata):
         return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
 
 # Create your views here.
+"""
 def login(request):
     return JsonResponse("Reached login endpoint")
 
@@ -52,3 +53,4 @@ def getRequests(request, account_id=None):
         })
 
     return JsonResponse("Reached requests endpoint (for food that is...)")
+    """

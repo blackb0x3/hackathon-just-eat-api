@@ -4,10 +4,10 @@ from django.utils import timezone
 
 class Users(models.Model):
 	name = models.CharField(max_length = 40, null = False)
-	email = models.CharField(null = False)
+	email = models.CharField(max_length = 40, null = False)
 	contact_number = models.CharField(max_length = 15, null = False)
 	picture = models.ImageField(upload_to = 'images/users_img', blank = True)
-	password = models.CharField(min_length = 6, max_length = 20, null = False)
+	password = models.CharField(max_length = 20, null = False)
 	address = models.CharField(max_length = 250, null = False)
 	city = models.CharField(max_length = 30, null = False)
 	postcode = models.CharField(max_length = 30, null = False)
@@ -20,16 +20,16 @@ class Allergies(models.Model):
 
 class Requests(models.Model):
 	food = models.CharField(max_length = 50)
-	picture = models.ImageField(upload_to = 'images/food_img', blank = True)
+	picture = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_picture')
 	comment = models.TextField(blank = True, null = False)
 	temperature = models.BooleanField(blank = False)
 	time = models.TimeField(default=timezone.now)
-	name = models.ForeignKey(Users,on_delete=models.CASCADE)
-	contact_number = models.ForeignKey(Users,on_delete=models.CASCADE)
-	address = models.ForeignKey(Users,on_delete=models.CASCADE)
-	city = models.ForeignKey(Users,on_delete=models.CASCADE)
-	postcode = models.ForeignKey(Users,on_delete=models.CASCADE)
-	ingredient = models.ForeignKey(Allergies,on_delete=models.CASCADE)
+	name = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_name')
+	contact_number = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_contact_number')
+	address = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_address')
+	city = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_city')
+	postcode = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_postcode')
+	ingredient = models.ForeignKey(Allergies,on_delete=models.CASCADE, related_name= 'Requests_ingredient')
 
         # for future reference:
         # 'tempreture' should be spelt 'temperature', and could be changed to 'hot' or 'cold' if it is a boolean...
