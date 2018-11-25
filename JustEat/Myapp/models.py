@@ -7,8 +7,6 @@ class Users(models.Model):
 	email = models.CharField(null = False)
 	contact_number = models.CharField(max_length = 15, null = False)
 	picture = models.ImageField(upload_to = 'images/users_img', blank = True)
-	contact_number = models.CharField(max_length = 15, null = False)
-	picture = models.ImageField(upload_to = 'images/users_img', blank = True)
 	password = models.CharField(min_length = 6, max_length = 20, null = False)
 	address = models.CharField(max_length = 250, null = False)
 	city = models.CharField(max_length = 30, null = False)
@@ -24,7 +22,7 @@ class Requests(models.Model):
 	food = models.CharField(max_length = 50)
 	picture = models.ImageField(upload_to = 'images/food_img', blank = True)
 	comment = models.TextField(blank = True, null = False)
-	tempreture = models.BooleanField(blank = False)
+        tempreture = models.BooleanField(blank = False)
 	time = models.TimeField(default=timezone.now)
 	name = models.ForeignKey(Users,on_delete=models.CASCADE)
 	contact_number = models.ForeignKey(Users,on_delete=models.CASCADE)
@@ -33,6 +31,9 @@ class Requests(models.Model):
 	postcode = models.ForeignKey(Users,on_delete=models.CASCADE)
 	ingredient = models.ForeignKey(Allergies,on_delete=models.CASCADE)
 
+        # for future reference:
+        # 'tempreture' should be spelt 'temperature', and could be changed to 'hot' or 'cold' if it is a boolean...
+        #   - implies a numeric value, e.g. 64.2 degrees
+        # no need for a city field - can be part of the address field
+        # ingredient could be renamed to allergic_ingredients - since it references the allergies table
 
-
- 
