@@ -17,7 +17,9 @@ Including another URLconf
 from Myapp import views
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
 
+router = routers.DefaultRouter()
 router.register(r'users', views.UsersViewSet)
 router.register(r'allergies', views.AllergiesViewSet)
 router.register(r'requests', views.RequestsViewSet)
