@@ -8,6 +8,9 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
 import json
+from rest_framework import viewsets
+from users.models import Users
+
 # Create your views here.
 #@api_view(["POST"])
 #def IdealWeight(heightdata):
