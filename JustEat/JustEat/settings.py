@@ -86,15 +86,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'justeat',
-        'USER': 'c1738283',
-        'PASSWORD': 'ezUGq8e3WyTS',
-        'HOST': 'csmysql.cs.cf.ac.uk',
+        'USER': 'dbuser',
+        'PASSWORD': 'password',
+        'HOST': 'mysql-hackathon-justeat.apps.cs.cf.ac.uk',
         'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        #'OPTIONS': {
+         #   'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             #Tell mySQLdb to connect with 'utf8mb4' character set
             #'charset': 'utf8mb4',
-        },
+        #},
         ##Tell django to create test database with charset
         #'TEST': {
         #    'CHARSET': 'utf8mb4',
