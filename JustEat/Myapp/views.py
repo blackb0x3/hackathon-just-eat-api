@@ -19,6 +19,27 @@ def IdealWeight(heightdata):
     except ValueError as e:
         return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
 
+class UsersViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Users.objects.all().order_by('-date_joined')
+    serializer_class = UsersSerializer
+
+class AllergiesViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Allergies.objects.all().order_by('-date_joined')
+    serializer_class = AllergiesSerializer
+
+class RequestsViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Requests.objects.all().order_by('-date_joined')
+    serializer_class = RequestsSerializer    
+
 # Create your views here.
 """
 def login(request):
