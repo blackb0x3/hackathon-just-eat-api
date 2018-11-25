@@ -9,15 +9,15 @@ from django.core import serializers
 from django.conf import settings
 import json
 # Create your views here.
-@api_view(["POST"])
-def IdealWeight(heightdata):
+#@api_view(["POST"])
+#def IdealWeight(heightdata):
 #The IdealWeight(heightdate) is the method that gets executed when API call is made. It has a simple logic to calculate weight(=height*10). The line return JsonRespone(…) will send the response back.
-    try:
-        height=json.loads(heightdata.body)
-        weight=str(height*10)
-        return JsonResponse("Ideal weight should be:"+ weight +" kg",safe=False)
-    except ValueError as e:
-        return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
+#    try:
+#        height=json.loads(heightdata.body)
+ #       weight=str(height*10)
+#        return JsonResponse("Ideal weight should be:"+ weight +" kg",safe=False)
+#    except ValueError as e:
+#        return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
 
 class UsersViewSet(viewsets.ModelViewSet):
     """
