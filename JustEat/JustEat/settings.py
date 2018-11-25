@@ -82,19 +82,26 @@ WSGI_APPLICATION = 'JustEat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'justeat',
+#        'USER': 'c1738283',
+#        'PASSWORD': 'ezUGq8e3WyTS',
+#        'HOST': 'csmysql.cs.cf.ac.uk',
+#        'PORT': '3306',
+#        'OPTIONS': {
+#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#        },
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'justeat',
-        'USER': 'c1738283',
-        'PASSWORD': 'ezUGq8e3WyTS',
-        'HOST': 'csmysql.cs.cf.ac.uk',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
+ }
 
 
 # Password validation
