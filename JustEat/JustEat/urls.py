@@ -18,12 +18,18 @@ from Myapp import views
 from django.conf.urls import url, include
 from django.contrib import admin
 
-
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^idealweight/',views.IdealWeight),
     url(r'^api-auth/', include('rest_framework.urls'))
-    ]
-#The line url(r^idealweight/,views.IdealWeight) 
+
+    # ENDPOINTS TO BE IMPLEMENTED
+    url(r'^login/', views.login)
+    url(r'^register/', views.register)
+    url(r'^account-details/<int:num>/', views.getAccountDetails)
+    url(r'^update-account/<int:num>/', views.updateAccountDetails)
+    url(r'^requests/<int:num>/', views.getRequests)
+    #url(r'^')
+]
+#The line url(r^idealweight/,views.IdealWeight)
 #basically tells us that the IdealWeight method will be called using the url http://<server ip>/idealweight/
