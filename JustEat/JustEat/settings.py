@@ -93,7 +93,7 @@ DATABASES = {
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             #Tell mySQLdb to connect with 'utf8mb4' character set
-            'charset': 'utf8mb4',
+            #'charset': 'utf8mb4',
         },
         ##Tell django to create test database with charset
         #'TEST': {
