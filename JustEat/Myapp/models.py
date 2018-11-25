@@ -9,14 +9,13 @@ class Users(models.Model):
 	picture = models.ImageField(upload_to = 'images/users_img', blank = True)
 	password = models.CharField(max_length = 20, null = False)
 	address = models.CharField(max_length = 250, null = False)
-	city = models.CharField(max_length = 30, null = False)
 	postcode = models.CharField(max_length = 30, null = False)
 	terms_conditions = models.BooleanField(default = False, null = False)
 	validation = models.BooleanField(default = False, null = False)
 	company = models.BooleanField(default = False, null = False)
 
 class Allergies(models.Model):
-	ingredient = models.CharField(max_length = 30)
+	allergic_ingredients = models.CharField(max_length = 30)
 
 class Requests(models.Model):
 	food = models.CharField(max_length = 50)
@@ -24,12 +23,11 @@ class Requests(models.Model):
 	comment = models.TextField(blank = True, null = False)
 	temperature = models.BooleanField(blank = False)
 	time = models.TimeField(default=timezone.now)
-	name = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_name')
-	contact_number = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_contact_number')
-	address = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_address')
-	city = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_city')
-	postcode = models.ForeignKey(Users,on_delete=models.CASCADE, related_name= 'Requests_postcode')
-	ingredient = models.ForeignKey(Allergies,on_delete=models.CASCADE, related_name= 'Requests_ingredient')
+	name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name= 'Requests_name')
+	contact_number = models.ForeignKey(Users, on_delete=models.CASCADE, related_name= 'Requests_contact_number')
+	address = models.ForeignKey(Users, on_delete=models.CASCADE, related_name= 'Requests_address')
+	postcode = models.ForeignKey(Users, on_delete=models.CASCADE, related_name= 'Requests_postcode')
+	allergic_ingredients = models.ForeignKey(Allergies, on_delete=models.CASCADE, related_name= 'Requests_ingredient')
 
         # for future reference:
         # 'tempreture' should be spelt 'temperature', and could be changed to 'hot' or 'cold' if it is a boolean...
