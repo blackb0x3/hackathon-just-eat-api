@@ -22,7 +22,7 @@ class Requests(models.Model):
 	food = models.CharField(max_length = 50)
 	picture = models.ImageField(upload_to = 'images/food_img', blank = True)
 	comment = models.TextField(blank = True, null = False)
-        tempreture = models.BooleanField(blank = False)
+	temperature = models.BooleanField(blank = False)
 	time = models.TimeField(default=timezone.now)
 	name = models.ForeignKey(Users,on_delete=models.CASCADE)
 	contact_number = models.ForeignKey(Users,on_delete=models.CASCADE)
