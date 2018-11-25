@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'JustEat.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'justeat',
         'USER': 'c1738283',
         'PASSWORD': 'ezUGq8e3WyTS',
@@ -95,11 +95,11 @@ DATABASES = {
             #Tell mySQLdb to connect with 'utf8mb4' character set
             'charset': 'utf8mb4',
         },
-        #Tell django to create test database with charset
-        'TEST': {
-            'CHARSET': 'utf8mb4',
-            'COLLATION': 'utf8mb4_unicode_ci',
-        }
+        ##Tell django to create test database with charset
+        #'TEST': {
+        #    'CHARSET': 'utf8mb4',
+        #    'COLLATION': 'utf8mb4_unicode_ci',
+        #}
     }
 }
 
